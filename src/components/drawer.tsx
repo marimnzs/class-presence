@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import Drawer from '@mui/material/Drawer';
+import React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
-import SettingsIcon from '@mui/icons-material/Settings';
+import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { Typography, Drawer, Box } from '@mui/material';
+import Logo from './logo';
 
 interface CustomDrawerProps {
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
 }
 
 const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, onClose }) => {
@@ -21,25 +21,45 @@ const CustomDrawer: React.FC<CustomDrawerProps> = ({ isOpen, onClose }) => {
       anchor="left"
       open={isOpen}
       onClose={onClose}
+      sx={{
+        '& .MuiDrawer-paper': {
+          backgroundColor: '#F1E7DD',
+        },
+      }}
     >
       <List>
+        <Box sx={{
+          margin: '20px',
+        }}>
+          <Logo />
+        </Box>
+        <Typography sx={{
+          margin: '20px',
+          fontSize: '20px',
+        }}>Ola, Marina!</Typography>
         <ListItem button>
           <ListItemIcon>
-            <HomeIcon />
+            <AutoStoriesOutlinedIcon/>
           </ListItemIcon>
-          <ListItemText primary="Opção 1" />
+          <ListItemText primary="Aulas dos dia" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <PersonIcon />
+            <GroupsOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Opção 2" />
+          <ListItemText primary="Controle de presenca" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <SettingsIcon />
+            <PermIdentityOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary="Opção 3" />
+          <ListItemText primary="Diario de classe" />
+        </ListItem>
+        <ListItem button >
+          <ListItemIcon>
+            <LogoutOutlinedIcon />
+          </ListItemIcon>
+          <ListItemText primary="Sair" />
         </ListItem>
       </List>
     </Drawer>
