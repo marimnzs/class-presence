@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SignIn/>} />
+        <Route path="/" element={<Classes/>} />
         <Route path="/entrar" element={<SignIn/>} />
         {/* colocamos * pra pegar qualquer rota que não estiver especificada */}
         <Route path="*" element={<h1>About</h1>} />
